@@ -76,7 +76,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-medium">Address</h4>
-                    <p className="text-muted-foreground">Shell, Joska, Kenya</p>
+                    <p className="text-muted-foreground">5th Ngong Avenue Suites, 8th Floor. P.O Box 1630 - 00606, Nairobi</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -149,7 +149,7 @@ export function ContactSection() {
               <h3 className="text-xl font-semibold mb-6">Our Location</h3>
               <div className="aspect-video bg-white dark:bg-slate-800 rounded-lg overflow-hidden shadow-md">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.6893831179247!2d37.1337473!3d-1.3935899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f7e8b1e863f3b%3A0x91df392c5f7e4e6e!2sShell%20Joska%2C%20Kangundo%20Rd%2C%20Joska!5e0!3m2!1sen!2ske!4v1710259774247!5m2!1sen!2ske"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.6893831179247!2d36.8177!3d-1.2921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f7e8b1e863f3b%3A0x91df392c5f7e4e6e!2s5th%20Ngong%20Avenue%20Suites!5e0!3m2!1sen!2ske!4v1710259774247!5m2!1sen!2ske"
                   width="600"
                   height="300"
                   style={{ border: 0 }}
