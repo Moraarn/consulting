@@ -5,6 +5,7 @@ import type React from "react"
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { ArrowRight, Code, Database, Globe, Server, Shield } from "lucide-react"
+import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 
@@ -72,13 +73,12 @@ export function HeroSection() {
               A leading Kenyan ICT consultancy company delivering cutting-edge solutions to government departments,
               religious organizations, and private companies.
             </p>
-            <div className="mt-10 flex flex-wrap justify-center lg:justify-start gap-4">
-              <Button className="bg-white hover:bg-gray-100 text-slate-900">
-                Explore Our Services
-                <ArrowRight className="ml-2 h-4 w-4" />
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Button className="bg-[#f5c855] hover:bg-yellow-500 text-black" asChild>
+                <Link href="/#services">Explore Our Services</Link>
               </Button>
-              <Button className="bg-[#f5c855] hover:bg-yellow-500 text-black">
-                Our Portfolio
+              <Button className="bg-white hover:bg-gray-100 text-slate-900" asChild>
+                <Link href="/#case-studies">Our Portfolio</Link>
               </Button>
             </div>
 

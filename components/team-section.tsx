@@ -20,25 +20,45 @@ export function TeamSection() {
               name: "Ezra Nyangwara",
               role: "CEO & Founder",
               bio: "15+ years of experience in IT leadership and strategy",
-              image: "/Ezra.jpg",
+              image: "/Ezra1.jpg",
+              social: {
+                linkedin: "https://www.linkedin.com/in/ezra-nyangwara",
+                twitter: "https://twitter.com/ezranyangwara",
+                email: "mailto:ezra@mcthconsult.com"
+              }
             },
             { 
               name: "Ruth Moraa", 
               role: "Developer", 
               bio: "Expert in software development and emerging technologies",
               image: "/Ruth.jpg",
+              social: {
+                linkedin: "https://www.linkedin.com/in/ruth-moraa",
+                twitter: "https://twitter.com/ruthmoraa",
+                email: "mailto:ruth@mcthconsult.com"
+              }
             },
             {
               name: "Dancan Mogire",
               role: "Country Managing Director (CMD) | Health Informatics",
               bio: "Specializes in digital transformation and process optimization",
-              image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+              image: "/Duncan.jpg",
+              social: {
+                linkedin: "https://www.linkedin.com/in/dancan-mogire",
+                twitter: "https://twitter.com/dancanmogire",
+                email: "mailto:dancan@mcthconsult.com"
+              }
             },
             {
               name: "Dickson Ogoti",
               role: "Project Manager",
               bio: "Certified PMP with extensive experience in complex IT projects",
-              image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+              image: "/Dickson.jpg",
+              social: {
+                linkedin: "https://www.linkedin.com/in/dickson-ogoti",
+                twitter: "https://twitter.com/dicksonogoti",
+                email: "mailto:dickson@mcthconsult.com"
+              }
             },
           ].map((member, i) => (
             <div key={i} className="group relative">
@@ -54,10 +74,16 @@ export function TeamSection() {
 
                   {/* Social links */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 flex justify-center gap-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    {["LinkedIn", "Twitter", "Email"].map((social, j) => (
+                    {[
+                      { name: "LinkedIn", url: member.social.linkedin },
+                      { name: "Twitter", url: member.social.twitter },
+                      { name: "Email", url: member.social.email }
+                    ].map((social, j) => (
                       <a
                         key={j}
-                        href="#"
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="bg-white/20 backdrop-blur-sm hover:bg-white/30 rounded-full p-2 transition-colors"
                       >
                         <svg
@@ -72,13 +98,13 @@ export function TeamSection() {
                           strokeLinejoin="round"
                           className="text-white"
                         >
-                          {social === "LinkedIn" ? (
+                          {social.name === "LinkedIn" ? (
                             <>
                               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                               <rect width="4" height="12" x="2" y="9" />
                               <circle cx="4" cy="4" r="2" />
                             </>
-                          ) : social === "Twitter" ? (
+                          ) : social.name === "Twitter" ? (
                             <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                           ) : (
                             <>

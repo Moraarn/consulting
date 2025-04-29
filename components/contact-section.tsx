@@ -1,9 +1,31 @@
 import { Mail, MapPin, Phone } from "lucide-react"
+import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
 import { SectionHeading } from "@/components/ui/section-heading"
 
 export function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const { name, email, subject, message } = formData
+    const mailtoLink = `mailto:info@mcthconsult.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\n${message}`
+    )}`
+    window.location.href = mailtoLink
+  }
+
   return (
     <section id="contact" className="py-24 bg-slate-50 dark:bg-slate-900">
       <div className="container">
@@ -18,7 +40,7 @@ export function ContactSection() {
           <div>
             <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
               <h3 className="text-xl font-semibold mb-6">Send Us a Message</h3>
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium">
@@ -26,6 +48,10 @@ export function ContactSection() {
                     </label>
                     <input
                       id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
                       className="w-full px-3 py-2 border rounded-md bg-transparent"
                       placeholder="Your name"
                     />
@@ -36,7 +62,11 @@ export function ContactSection() {
                     </label>
                     <input
                       id="email"
+                      name="email"
                       type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
                       className="w-full px-3 py-2 border rounded-md bg-transparent"
                       placeholder="Your email"
                     />
@@ -48,6 +78,10 @@ export function ContactSection() {
                   </label>
                   <input
                     id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
                     className="w-full px-3 py-2 border rounded-md bg-transparent"
                     placeholder="Subject"
                   />
@@ -58,11 +92,15 @@ export function ContactSection() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
                     className="w-full px-3 py-2 border rounded-md min-h-[120px] bg-transparent"
                     placeholder="Your message"
                   ></textarea>
                 </div>
-                <Button className="w-full bg-[#f5c855] hover:bg-yellow-500 text-black">Send Message</Button>
+                <Button type="submit" className="w-full bg-[#f5c855] hover:bg-yellow-500 text-black">Send Message</Button>
               </form>
             </div>
           </div>
@@ -103,10 +141,17 @@ export function ContactSection() {
                 <div className="pt-4">
                   <h4 className="font-medium mb-3">Follow Us</h4>
                   <div className="flex gap-3">
-                    {["LinkedIn", "Twitter", "Facebook", "Instagram"].map((social, i) => (
+                    {[
+                      { name: "LinkedIn", url: "https://www.linkedin.com/company/mcthconsult" },
+                      { name: "Twitter", url: "https://twitter.com/mcthconsult" },
+                      { name: "Facebook", url: "https://www.facebook.com/mcthconsult" },
+                      { name: "Instagram", url: "https://www.instagram.com/mcthconsult" }
+                    ].map((social, i) => (
                       <a
                         key={i}
-                        href="#"
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="bg-primary-100 dark:bg-primary-900/30 hover:bg-primary-200 dark:hover:bg-primary-800/30 rounded-full p-3 transition-colors"
                       >
                         <svg
@@ -121,15 +166,15 @@ export function ContactSection() {
                           strokeLinejoin="round"
                           className="text-primary-600 dark:text-primary-400"
                         >
-                          {social === "LinkedIn" ? (
+                          {social.name === "LinkedIn" ? (
                             <>
                               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                               <rect width="4" height="12" x="2" y="9" />
                               <circle cx="4" cy="4" r="2" />
                             </>
-                          ) : social === "Twitter" ? (
+                          ) : social.name === "Twitter" ? (
                             <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                          ) : social === "Facebook" ? (
+                          ) : social.name === "Facebook" ? (
                             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                           ) : (
                             <>

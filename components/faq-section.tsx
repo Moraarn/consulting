@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { SectionHeading } from "@/components/ui/section-heading"
+import Link from "next/link"
 
 export function FaqSection() {
   return (
@@ -51,7 +52,9 @@ export function FaqSection() {
 
           <div className="mt-12 text-center">
             <p className="text-muted-foreground mb-4">Still have questions? We're here to help.</p>
-            <Button className="bg-[#f5c855] hover:bg-yellow-500 text-black">Contact Our Team</Button>
+            <Button className="bg-[#f5c855] hover:bg-yellow-500 text-black" asChild>
+              <Link href="/#contact">Contact Our Team</Link>
+            </Button>
           </div>
         </div>
       </div>

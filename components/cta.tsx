@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Mail, MapPin, Phone } from "lucide-react"
+import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import { SectionHeading } from "@/components/ui/section-heading"
@@ -63,7 +64,14 @@ export function ContactSection() {
                     placeholder="Your message"
                   ></textarea>
                 </div>
-                <Button className="w-full bg-primary-600 hover:bg-primary-700">Send Message</Button>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button className="w-full sm:w-auto bg-[#f5c855] hover:bg-yellow-500 text-black" asChild>
+                    <Link href="/#contact">Get Started</Link>
+                  </Button>
+                  <Button className="w-full sm:w-auto bg-white hover:bg-gray-100 text-slate-900" asChild>
+                    <Link href="/#services">Learn More</Link>
+                  </Button>
+                </div>
               </form>
             </div>
           </div>

@@ -36,54 +36,33 @@ export function MobileMenu({ scrolled = true }: MobileMenuProps) {
           <SheetTitle className="text-left">Menu</SheetTitle>
         </SheetHeader>
         <div className="flex flex-col gap-4 mt-6">
-          <Link
-            href="#"
-            className="text-lg font-medium hover:text-[#f5c855] transition-colors"
-            onClick={handleLinkClick}
-          >
-            Home
-          </Link>
-          <Link
-            href="#about"
-            className="text-lg font-medium hover:text-[#f5c855] transition-colors"
-            onClick={handleLinkClick}
-          >
-            About
-          </Link>
-          <Link
-            href="#services"
-            className="text-lg font-medium hover:text-[#f5c855] transition-colors"
-            onClick={handleLinkClick}
-          >
-            Services
-          </Link>
-          <Link
-            href="#work"
-            className="text-lg font-medium hover:text-[#f5c855] transition-colors"
-            onClick={handleLinkClick}
-          >
-            Our Work
-          </Link>
-          <Link
-            href="#insights"
-            className="text-lg font-medium hover:text-[#f5c855] transition-colors"
-            onClick={handleLinkClick}
-          >
-            Insights
-          </Link>
-          <Link
-            href="#contact"
-            className="text-lg font-medium hover:text-[#f5c855] transition-colors"
-            onClick={handleLinkClick}
-          >
-            Contact
-          </Link>
+          <nav className="flex flex-col gap-6">
+            {[
+              { label: "Home", href: "/" },
+              { label: "About", href: "/#about" },
+              { label: "Services", href: "/#services" },
+              { label: "Case Studies", href: "/#case-studies" },
+              { label: "Team", href: "/#team" },
+              { label: "Contact", href: "/#contact" },
+            ].map((item, i) => (
+              <Link
+                key={i}
+                href={item.href}
+                className="text-lg font-medium hover:text-primary-400 transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
           <Button 
             className="mt-4 bg-[#f5c855] hover:bg-yellow-500 text-black"
             onClick={() => {
               const contactSection = document.getElementById('contact')
-              contactSection?.scrollIntoView({ behavior: 'smooth' })
-              setOpen(false)
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' })
+                setOpen(false)
+              }
             }}
           >
             Get in Touch

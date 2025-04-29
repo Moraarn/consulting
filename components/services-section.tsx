@@ -228,7 +228,7 @@ export function ServicesSection() {
                 { title: "Support", description: "We provide ongoing maintenance and optimization", icon: "04" },
               ].map((step, i) => (
                 <div key={i} className="relative flex flex-col items-center text-center">
-                  <div className="relative z-10 bg-primary-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold mb-4">
+                  <div className="relative z-10 bg-primary-600 text-black w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold mb-4">
                     {step.icon}
                   </div>
                   <h4 className="text-lg font-semibold mb-2">{step.title}</h4>

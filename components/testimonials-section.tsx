@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -87,7 +88,9 @@ export function TestimonialsSection() {
                 We measure our success by the satisfaction and success of our clients. Here's what our client surveys
                 reveal:
               </p>
-              <Button className="bg-[#f5c855] hover:bg-yellow-500 text-black">Read More Success Stories</Button>
+              <Button className="bg-[#f5c855] hover:bg-yellow-500 text-black" asChild>
+                <Link href="/#case-studies">Read More Success Stories</Link>
+              </Button>
             </div>
             <div className="space-y-4">
               {[
@@ -100,7 +103,7 @@ export function TestimonialsSection() {
                     <span className="text-sm font-medium">{stat.label}</span>
                     <span className="text-sm font-medium">{stat.percentage}%</span>
                   </div>
-                  <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                  <div className="h-2 bg-slate-200 dark:bg-primary-600 rounded-full overflow-hidden">
                     <div className="h-full bg-primary-600 rounded-full" style={{ width: `${stat.percentage}%` }}></div>
                   </div>
                 </div>

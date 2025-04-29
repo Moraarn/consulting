@@ -25,8 +25,19 @@ export function Footer() {
               departments, religious organizations, and private companies.
             </p>
             <div className="flex gap-4">
-              {["LinkedIn", "Twitter", "Facebook", "Instagram"].map((social, i) => (
-                <a key={i} href="#" className="text-slate-400 hover:text-primary-400 transition-colors">
+              {[
+                { name: "LinkedIn", url: "https://www.linkedin.com/company/mcthconsult" },
+                { name: "Twitter", url: "https://twitter.com/mcthconsult" },
+                { name: "Facebook", url: "https://www.facebook.com/mcthconsult" },
+                { name: "Instagram", url: "https://www.instagram.com/mcthconsult" }
+              ].map((social, i) => (
+                <a
+                  key={i}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 hover:text-primary-400 transition-colors"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -38,15 +49,15 @@ export function Footer() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
-                    {social === "LinkedIn" ? (
+                    {social.name === "LinkedIn" ? (
                       <>
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                         <rect width="4" height="12" x="2" y="9" />
                         <circle cx="4" cy="4" r="2" />
                       </>
-                    ) : social === "Twitter" ? (
+                    ) : social.name === "Twitter" ? (
                       <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                    ) : social === "Facebook" ? (
+                    ) : social.name === "Facebook" ? (
                       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                     ) : (
                       <>
@@ -60,74 +71,42 @@ export function Footer() {
               ))}
             </div>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Quick Links</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="#" className="text-slate-400 hover:text-primary-400 transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="#about" className="text-slate-400 hover:text-primary-400 transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="#services" className="text-slate-400 hover:text-primary-400 transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#work" className="text-slate-400 hover:text-primary-400 transition-colors">
-                  Our Work
-                </Link>
-              </li>
-              <li>
-                <Link href="#insights" className="text-slate-400 hover:text-primary-400 transition-colors">
-                  Insights
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="text-slate-400 hover:text-primary-400 transition-colors">
-                  Contact
-                </Link>
-              </li>
+          <div className="space-y-4">
+            <h4 className="font-semibold">Quick Links</h4>
+            <ul className="space-y-2">
+              {[
+                { label: "Home", href: "/" },
+                { label: "About Us", href: "/#about" },
+                { label: "Services", href: "/#services" },
+                { label: "Case Studies", href: "/#case-studies" },
+                { label: "Team", href: "/#team" },
+                { label: "Contact", href: "/#contact" },
+              ].map((link, i) => (
+                <li key={i}>
+                  <Link href={link.href} className="text-slate-400 hover:text-primary-400 transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Services</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="#" className="text-slate-400 hover:text-primary-400 transition-colors">
-                  Cloud Infrastructure
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-slate-400 hover:text-primary-400 transition-colors">
-                  Cybersecurity
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-slate-400 hover:text-primary-400 transition-colors">
-                  IT Consulting
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-slate-400 hover:text-primary-400 transition-colors">
-                  Software Development
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-slate-400 hover:text-primary-400 transition-colors">
-                  Digital Transformation
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-slate-400 hover:text-primary-400 transition-colors">
-                  Network Solutions
-                </Link>
-              </li>
+          <div className="space-y-4">
+            <h4 className="font-semibold">Services</h4>
+            <ul className="space-y-2">
+              {[
+                { label: "IT Consulting", href: "/#services" },
+                { label: "Digital Transformation", href: "/#services" },
+                { label: "Cloud Solutions", href: "/#services" },
+                { label: "Cybersecurity", href: "/#services" },
+                { label: "Data Analytics", href: "/#services" },
+                { label: "Custom Software", href: "/#services" },
+              ].map((link, i) => (
+                <li key={i}>
+                  <Link href={link.href} className="text-slate-400 hover:text-primary-400 transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
@@ -157,16 +136,21 @@ export function Footer() {
             <p className="text-slate-400 text-sm">
               © {new Date().getFullYear()} Matrix Cloud Hub. All rights reserved.
             </p>
-            <div className="flex gap-6">
-              <Link href="#" className="text-slate-400 hover:text-primary-400 transition-colors text-sm">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="text-slate-400 hover:text-primary-400 transition-colors text-sm">
-                Terms of Service
-              </Link>
-              <Link href="#" className="text-slate-400 hover:text-primary-400 transition-colors text-sm">
-                Cookie Policy
-              </Link>
+            <div className="space-y-4">
+              <h4 className="font-semibold">Legal</h4>
+              <ul className="space-y-2">
+                {[
+                  { label: "Privacy Policy", href: "/privacy" },
+                  { label: "Terms of Service", href: "/terms" },
+                  { label: "Cookie Policy", href: "/cookies" },
+                ].map((link, i) => (
+                  <li key={i}>
+                    <Link href={link.href} className="text-slate-400 hover:text-primary-400 transition-colors text-sm">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
