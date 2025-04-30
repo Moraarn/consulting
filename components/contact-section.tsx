@@ -114,7 +114,9 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-medium">Address</h4>
-                    <p className="text-muted-foreground">5th Ngong Avenue Suites, 8th Floor. P.O Box 1630 - 00606, Nairobi</p>
+                    <p className="text-muted-foreground">Office Address:<br />
+                    5th Ngong Avenue Suites, 8th Floor.<br />
+                    P.O Box 1630 - 00606, Nairobi</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

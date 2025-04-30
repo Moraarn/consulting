@@ -63,7 +63,7 @@ export function HeroSection() {
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
               <span className="text-primary-600">Transforming</span> <span className="text-blue">Businesses </span>Through{" "}
               <span className="relative">
-                <span className="relative z-10 text-transparent text-primary bg-clip-text bg-gradient-to-r from-slate-300 to-white">
+                <span className="relative z-10 text-primary bg-clip-text bg-gradient-to-r from-slate-300 to-white">
                   Innovative Technology
                 </span>
                 <span className="absolute -bottom-1 left-0 right-0 h-3 bg-white/20 blur-sm"></span>
