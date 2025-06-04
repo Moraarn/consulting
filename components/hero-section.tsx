@@ -28,7 +28,7 @@ export function HeroSection() {
       {/* Background Image with dark overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://i.pinimg.com/736x/0e/bd/b9/0ebdb9f8cb628dc5224bd2f84a2ff9e2.jpg"
+          src="/pexels-tima-miroshnichenko-6612237.jpg"
           alt="Hero background"
           fill
           priority
@@ -107,7 +107,7 @@ export function HeroSection() {
           <div className="relative">
             <div className="relative mx-auto aspect-square max-w-md overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/50 backdrop-blur shadow-xl">
               <Image
-                src="https://i.pinimg.com/736x/0e/bd/b9/0ebdb9f8cb628dc5224bd2f84a2ff9e2.jpg"
+                src="/pexels-tima-miroshnichenko-6612237.jpg"
                 alt="Digital transformation visualization"
                 width={600}
                 height={600}
