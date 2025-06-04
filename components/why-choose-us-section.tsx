@@ -1,32 +1,77 @@
+"use client"
+
 import { CheckCircle, ChevronRight, Globe, Layers, Zap } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { SectionHeading } from "@/components/ui/section-heading"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 export function WhyChooseUsSection() {
+  const features = [
+    {
+      title: "Local Expertise, Global Standards",
+      description: "We combine deep understanding of the Kenyan market with international best practices.",
+      icon: Globe,
+      details: {
+        overview: "Our unique blend of local market knowledge and international expertise sets us apart in the Kenyan ICT landscape.",
+        keyPoints: [
+          "Deep understanding of local business environment and regulations",
+          "Partnerships with leading global technology providers",
+          "Implementation of international best practices and standards",
+          "Local team with global certifications and training",
+          "Cultural awareness and contextual solutions"
+        ],
+        impact: "This combination allows us to deliver solutions that are both globally competitive and locally relevant, ensuring maximum value for our clients."
+      }
+    },
+    {
+      title: "End-to-End Solutions",
+      description: "From strategy to implementation and support, we provide comprehensive technology services.",
+      icon: Layers,
+      details: {
+        overview: "We offer complete technology solutions that cover every aspect of your digital transformation journey.",
+        keyPoints: [
+          "Strategic IT consulting and roadmap development",
+          "Custom software development and integration",
+          "Infrastructure setup and cloud migration",
+          "24/7 monitoring and support services",
+          "Regular maintenance and updates"
+        ],
+        impact: "Our comprehensive approach ensures seamless integration, consistent quality, and long-term success of your technology investments."
+      }
+    },
+    {
+      title: "Innovation-Driven Approach",
+      description: "We constantly explore emerging technologies to deliver cutting-edge solutions.",
+      icon: Zap,
+      details: {
+        overview: "Innovation is at the core of everything we do, keeping our clients ahead in the fast-evolving technology landscape.",
+        keyPoints: [
+          "Dedicated research and development team",
+          "Regular exploration of emerging technologies",
+          "Proof-of-concept development for new solutions",
+          "Innovation workshops and knowledge sharing",
+          "Continuous improvement and optimization"
+        ],
+        impact: "Our focus on innovation ensures that our clients benefit from the latest technological advancements while maintaining stability and reliability."
+      }
+    }
+  ]
+
   return (
     <section className="py-24 bg-slate-50 dark:bg-slate-900">
       <div className="container">
         <SectionHeading badge="Why Choose Us" title="What Sets Us" titleColored="Apart" />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Local Expertise, Global Standards",
-              description: "We combine deep understanding of the Kenyan market with international best practices.",
-              icon: Globe,
-            },
-            {
-              title: "End-to-End Solutions",
-              description: "From strategy to implementation and support, we provide comprehensive technology services.",
-              icon: Layers,
-            },
-            {
-              title: "Innovation-Driven Approach",
-              description: "We constantly explore emerging technologies to deliver cutting-edge solutions.",
-              icon: Zap,
-            },
-          ].map((item, i) => {
+          {features.map((item, i) => {
             const Icon = item.icon
             return (
               <div key={i} className="relative group">
@@ -38,12 +83,42 @@ export function WhyChooseUsSection() {
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                   <p className="text-muted-foreground">{item.description}</p>
                   <div className="mt-auto pt-4">
-                    <Button
-                      variant="ghost"
-                      className="p-0 h-auto text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
-                    >
-                      Learn more <ChevronRight className="h-4 w-4 ml-1" />
-                    </Button>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button
+                          variant="ghost"
+                          className="p-0 h-auto text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
+                        >
+                          Learn more <ChevronRight className="h-4 w-4 ml-1" />
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="sm:max-w-[625px]">
+                        <DialogHeader>
+                          <DialogTitle className="flex items-center gap-2 text-2xl">
+                            <Icon className="h-6 w-6 text-primary-600" />
+                            {item.title}
+                          </DialogTitle>
+                          <DialogDescription className="text-base mt-4">
+                            {item.details.overview}
+                          </DialogDescription>
+                        </DialogHeader>
+                        <div className="mt-6">
+                          <h4 className="font-semibold text-lg mb-3">Key Features:</h4>
+                          <ul className="space-y-2">
+                            {item.details.keyPoints.map((point, index) => (
+                              <li key={index} className="flex items-start gap-2">
+                                <CheckCircle className="h-5 w-5 text-primary-600 shrink-0 mt-0.5" />
+                                <span>{point}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          <div className="mt-6 p-4 bg-slate-50 dark:bg-slate-900 rounded-lg">
+                            <h4 className="font-semibold mb-2">Impact</h4>
+                            <p className="text-muted-foreground">{item.details.impact}</p>
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                   </div>
                 </div>
               </div>
@@ -52,7 +127,7 @@ export function WhyChooseUsSection() {
         </div>
 
         {/* Feature comparison */}
-        <div className="mt-20 max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="mt-24">
           <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden">
             <div className="p-6 border-b">
               <h3 className="text-xl font-bold">How We Compare</h3>
@@ -67,7 +142,7 @@ export function WhyChooseUsSection() {
                     <th className="px-4 sm:px-6 py-4 text-center font-medium w-1/4">Competitors</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-200 dark:divide-slate-700">
+                <tbody>
                   {[
                     { feature: "Local Market Understanding", us: true, them: false },
                     { feature: "End-to-End Solutions", us: true, them: "Limited" },
@@ -80,7 +155,7 @@ export function WhyChooseUsSection() {
                       <td className="px-4 sm:px-6 py-4 text-center">
                         {row.us === true ? <CheckCircle className="h-5 w-5 text-primary-600 mx-auto" /> : row.us}
                       </td>
-                      <td className="px-4 sm:px-6 py-4 text-center text-muted-foreground">
+                      <td className="px-4 sm:px-6 py-4 text-center">
                         {row.them === true ? (
                           <CheckCircle className="h-5 w-5 mx-auto" />
                         ) : row.them === false ? (
