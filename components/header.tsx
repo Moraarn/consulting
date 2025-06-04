@@ -35,12 +35,12 @@ export function Header() {
     >
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="relative h-10 w-10">
+          <div className="relative h-8 w-8">
             <Image
-              src="/logo.jpg"
+              src="/logo1.jpg"
               alt="Matrix Cloud Hub Logo"
-              width={40}
-              height={40}
+              width={32}
+              height={32}
               className="rounded-full object-cover"
             />
           </div>
